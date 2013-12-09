@@ -6,7 +6,9 @@
 
 '''Global Variables'''
 error="I'm sorry Dave, I can't let you do that.";
-helpmenu=("*****HELP MENU*****\n"+
+helpmenu=(
+	"***********************************************************************************\n"+
+	"*****HELP MENU*****\n"+
 	"This is the help menu.\n"+
 	"All commands are one letter except for taking items.\n"+
 	"Some commands are as follows,\n"+
@@ -82,10 +84,26 @@ class Player():
 		self.name=name;
 	def help(self, params):
 		print(helpmenu);
+	def restart(self, params):
+		print(mainstring);
+	def kill(self, params):
+		print(error);
+	def west(self, params):
+		print("Going to West Room");
+		#GOTO room 0;
+	def north(self, params):
+		print("Going to the North Room");
+		#GOTO room 1
+	def east(self, params):
+		print("Going to the East Room");
+		#GOTO room 2
+	def south(self, params):
+		print("Going to the South Room");
+		#GOTO room 3
 
 print(helpmenu);
 #test=Commands();
-while(gameon==True):
+if __name__=='__main__':
 	#test.getCommand();
 	#test.printCommand();
 	#test.isValid(); #Command validation
@@ -93,4 +111,7 @@ while(gameon==True):
 	cli=CLI();
 	D=Player("Dave");
 	cli.add('help',D.help);
+	cli.add("kill",D.kill);
+	cli.add("restart",D.restart);
+	cli.add("west",D.west);cli.add("east",D.east);cli.add("south",D.south);cli.add("north",D.north);
 	cli.start();
