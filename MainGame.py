@@ -4,6 +4,9 @@
 #Benedetto
 
 
+'''NOTE'''
+	#Tyler is working on the rooms code and maps code
+
 '''Global Variables'''
 error="I'm sorry Dave, I can't let you do that.";
 helpmenu=(
