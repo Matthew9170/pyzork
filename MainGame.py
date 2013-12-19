@@ -15,13 +15,12 @@ helpmenu=(
 	"This is the help menu.\n"+
 	"All commands are one letter except for taking items.\n"+
 	"Some commands are as follows,\n"+
-	"'g [DIRECTION]' This command will bring you to that room.\n"+
+	"'[DIRECTION]' This command will bring you to that room.\n"+
 	"'t [ITEM]' This command will remove the item from the floor and place it in your backpack.\n"+
 	"'d [ITEM]' This command will drop the item from your backpack and it will be gone for good.\n"+
-	"'r' This will restart the room.\n"+
 	"'l' Will print the description of the room.\n"+
-	"'e' This will exit the game.\n"+
-	"'h' This will print this message out again.\n\n"+
+	"'quit' This will exit the game.\n"+
+	"'help' This will print this message out again.\n\n"+
 	"**********************************************************************************\n"+
 	"Have fun, don't break things.")
 command=""; #Must assign it the global tag in each function that needs it
@@ -102,7 +101,7 @@ class Player():
  def help(self, params):
   print(helpmenu);
  def restart(self, params):
-  print(mainstring);
+  print("This does NOTHING");
  def kill(self, params):
   print(error);
  def west(self, params):
@@ -116,7 +115,7 @@ class Player():
   #GOTO room 2
  def south(self, params):
   print("Going to the South Room");
-  #GOTO room 3
+  
 
 print(helpmenu);
 #test=Commands();
@@ -125,35 +124,31 @@ if __name__=='__main__':
 	#test.printCommand();
 	#test.isValid(); #Command validation
 	#print(gameon);
-	cli=CLI();
-	D=Player("Dave");
-	W=Rooms(0);
-	W.getDisc();
-	cli.add('help',D.help);
-	cli.add("kill",D.kill);
-	cli.add("restart",D.restart);
-	cli.add("west",D.west);cli.add("east",D.east);cli.add("south",D.south);cli.add("north",D.north);
-	cli.start();
-	r1=Room("North Room")
-	r2=Room("South Room")
-	r3=Room("West Room")
-	r4=Room("East Room")
+ cli=CLI();
+ D=Player("Dave");
+ cli.add('help',D.help);
+ cli.add("kill",D.kill);
+ cli.add("restart",D.restart);
+ cli.add("west",D.west);cli.add("east",D.east);cli.add("south",D.south);cli.add("north",D.north);
+ cli.start();
+ r1=Rooms(1)
+ r2=Rooms(3)
+ r3=Rooms(0)
+ r4=Rooms(2)
   #Room 1 connections
-  r1.connect( r2, 'South' )
-  r1.connect( r3, 'West' )
-  r1.connect( r4, 'East' )
+ r1.connect( r2, 'South' )
+ r1.connect( r3, 'West' )
+ r1.connect( r4, 'East' )
   #Room 2 connections
-  r2.connect( r1, 'North' )
-  r2.connect( r3, 'West' )
-  r2.connect( r4, 'East' )
-
+ r2.connect( r1, 'North' )
+ r2.connect( r3, 'West' )
+ r2.connect( r4, 'East' )
   #Room 3 connections
-  r3.connect( r1, 'North' )
-  r3.connect( r2, 'South' 
-  r3.connect( r4, 'East' )
-
+ r3.connect( r1, 'North' )
+ r3.connect( r2, 'South' )
+ r3.connect( r4, 'East' )
   #Room 4 connections
-  r4.connect( r1, 'North' )
-  r4.connect( r2, 'South' )
-  r4.connect( r3, 'West' )
+ r4.connect( r1, 'North' )
+ r4.connect( r2, 'South' )
+ r4.connect( r3, 'West' )
 
