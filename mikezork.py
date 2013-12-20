@@ -1,3 +1,6 @@
+#Mike Szekely
+#mnm1321@gmail.com
+
 #import imp
 #imp.reload(module)
 import time
