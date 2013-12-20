@@ -119,7 +119,11 @@ class Player():
 
 print(helpmenu);
 #test=Commands();
-if __name__=='__main__':
+class Game:
+ def __init__(self):
+  self.rms=[]
+  self.p1=Player()
+  self.cli=CLI();
 	#test.getCommand();
 	#test.printCommand();
 	#test.isValid(); #Command validation
